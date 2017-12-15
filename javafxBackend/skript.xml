@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lecture>
+<title>FX-Umsetzung der Spielebibliothek</title>
+<docent>Sven Eric Panitz</docent>
+<preface>
+</preface>
+
+<content>
+<paragraph>
+<title>Die FX-Umsetzung</title>
+
+
+<paragraph>
+  <title>
+  </title>
+  <importSource file="src/name/panitz/game/framework/fx/FXContextTool.java"/>
+</paragraph>
+
+<paragraph>
+  <title>
+  </title>
+  <importSource file="src/name/panitz/game/framework/fx/FXScreen.java"/>
+</paragraph>
+<paragraph>
+  <title>
+  </title>
+    <importSource file="src/name/panitz/game/framework/fx/GameApplication.java"/>
+</paragraph>
+
+ 
+</paragraph>
+</content>
+</lecture>
