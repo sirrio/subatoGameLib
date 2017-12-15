@@ -29,4 +29,13 @@ public class SwingGame extends JPanel {
     add(buttonsPanel, BorderLayout.SOUTH);
   }
 
+
+  public static void startGame(GameLogic<Image> game) {
+    JFrame f = new JFrame();
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    f.add(new SwingScreen(game));
+    f.pack();
+    f.setVisible(true);
+  }
+
 }

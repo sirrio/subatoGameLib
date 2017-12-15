@@ -72,6 +72,8 @@ Die Dimensionen in Weite und Höhe des Spielobjektes wird durch die Größe der 
 </paragraph>
 <paragraph>
   <title>Bildobjekte mit Schwerkraft</title>
+  In vielen Spielen gibt es Spielfiguren, die fallen und springen. Hier brauchen wir ein wenig Ahnung über die Schwerkraft. Eine Unterklasse von <tt>ImageObject</tt> realsiert bereits Bildobjekte, die die Bewegung auf Sprünge implementiert hat.
+  
   <importSource file="src/name/panitz/game/framework/FallingImage.java"/>
   </paragraph>
 
@@ -123,13 +125,29 @@ Spiele können nun als Unterklasse dieser abstrakten Klassen umgesetzt werden.
 
 <paragraph>
   <title>Klänge</title>
+  Die kleine Bibliothek soll auch ermöglichen kleine Klänge bei Spielereignissen abzuspielen. Hierzu ist eine kleine Klasse vorgesehen, die im Konstruktor den Dateinamen eines Klangdatei übergeben bekommt. Da die verschiedenen Umsetzungen der Bibliothek mit unterschiedlichen Klassn für Klänge arbeiten, ist die Klasse generisch gehalten und hat einen Typparameter <tt>S</tt> für <em>sound</em>.
+  
   <importSource file="src/name/panitz/game/framework/SoundObject.java"/>
+
+  Die allgemeine Spielschnittstelle enthält eine Methode<br />
+  <tt><![CDATA[List<SoundObject<S>> getSoundsToPlayOnce();]]></tt>.<br />
+  Objekte die dieser Liste zugefügt werden, werden bei nächster Gelegenheit im Spiel genau einmal abgespielt.
+
+Ähnlich wie wir eine Schnittstelle für das Zeichnen von Objekten vorgesehen haben, stellt die Rahmenbibliothek eine Schnittstelle für das Laden und Abspielen von klängen bereit. Diese Schnittstelle wird in den unterschiedlichen Umsetzungen jeweils spezifisch implementiert, wobei die Swing-Umsetzung und die javafx-Umsetzung dort auf dieselbe Implementierung zurückgreifen können.
+  
   <importSource file="src/name/panitz/game/framework/SoundTool.java"/>
 </paragraph>
 
 <paragraph>
   <title>Knöpfe</title>
+  Globale Knöpfe können für ein Spiel definiert werden. Diese können zu einem Neustart führen, oder das Spiel anhalten, aber wenn es gewünscht ist, auch ins Spielgeschehen eingreifen. Die entsprechende Klasse ist sehr simpel gehalten. Sie enthält eine Zeichenkette für die beschriftung des Knopfes und ein Objekt der funktionalen Schnittstelle <tt>Runnable</tt> für die Aktion, die bei einem Knopfdruck ausgeführt werden soll.
+  
   <importSource file="src/name/panitz/game/framework/Button.java"/>
+
+
+  Die allgemeine Spielschnittstelle enthält eine Methode<br />
+  <tt><![CDATA[List<Button> getButtons();]]></tt>.<br />
+  Objekte die bei Spielstart in dieser Liste sind, werden als Knöpfe dargestellt.  
 </paragraph>
 
 <paragraph>
@@ -194,22 +212,11 @@ Um das Spiel in Swing zu spielen, muss es einer Instanz der Klasse <tt>SwingScre
 
 <code  lang="java" class="PlaySwing" package="src/main/java/name/panitz/game/example/simple"><![CDATA[package name.panitz.game.example.simple;
 import name.panitz.game.framework.GameLogic;
-import name.panitz.game.framework.swing.SwingScreen;
-
-import java.awt.Image;
-import javax.swing.JFrame;
+import name.panitz.game.framework.swing.SwingGame;
 
 public class PlaySwing{
-  public static void startGame(GameLogic<Image> game) {
-    JFrame f = new JFrame();
-    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    f.add(new SwingScreen(game));
-    f.pack();
-    f.setVisible(true);
-  }
-
   public static void main(String[] args){
-    startGame(new SimpleGame<>());
+    SwingGame.startGame(new SimpleGame<>());
   }
 }]]></code>
 </paragraph>
@@ -230,7 +237,7 @@ public class PlayFX extends GameApplication {
 
 <paragraph>
 <title>Einstiegsklasse für GWT</title>
-Um das Spiel als Browserspiel zu spielen, ist eine Implementierung der Schnittstelle <tt>EntryPoint</tt> zu schreiben. In der Methode <tt>onModuleLoad</tt> ist eine Instanz des Spiels in einem <tt>GameSrceen</tt>-Objekt einem HTML-Knoten der Webseite, auf dem das Spiel laufen soll, hinmzuzufügen. 
+Um das Spiel als Browserspiel zu spielen, ist eine Implementierung der Schnittstelle <tt>EntryPoint</tt> zu schreiben. In der Methode <tt>onModuleLoad</tt> ist eine Instanz des Spiels in einem <tt>GameSrceen</tt>-Objekt einem HTML-Knoten der Webseite, auf dem das Spiel laufen soll, hinzuzufügen. 
 
 
 <code lang="java" class="WebGames" package="src/main/java/name/panitz/game/framework/gwt/client"><![CDATA[package name.panitz.game.framework.gwt.client;
@@ -249,19 +256,19 @@ public class WebGames implements EntryPoint {
 
 <paragraph>
 <title>Einstiegsklasse für Android</title>
+Um ein Spiel in Android zu spielen, ist eine Klasse <tt>MainActivity</tt> zu schreiben. Wenn diese von der Klasse <tt>GameActivity</tt> ableitet, so kann die Instanz des zu spielenden Spiels im super-Aufruf des Konstruktors übergeben werden.
 <code lang="java" class="MainActivity" package="name/panitz/game/"><![CDATA[package name.panitz.game.framework.gwt.client;
 package name.panitz.game;
+import name.panitz.game.example.simple.SimpleGame;
 
 import name.panitz.game.framework.android.GameActivity;
-import name.panitz.game.klaus.HeartsOfKlaus;
 
 public class MainActivity extends GameActivity {
   public MainActivity() {
-    super(new HeartsOfKlaus<>());
+    super(new SimpleGame<>());
   }
 }]]></code>
 </paragraph>
 </paragraph>
 </content>
 </lecture>
-

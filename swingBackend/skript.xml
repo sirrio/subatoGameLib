@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lecture>
+<title>Swing-Umsetzung der Spielebibliothek</title>
+<docent>Sven Eric Panitz</docent>
+<preface>
+</preface>
+
+<content>
+<paragraph>
+<title>Die Swing-Umsetzung</title>
+
+
+<paragraph>
+  <title>
+  </title>
+  <importSource file="src/name/panitz/game/framework/swing/SwingGraphicsTool.java"/>
+</paragraph>
+
+<paragraph>
+  <title>
+  </title>
+  <importSource file="src/name/panitz/game/framework/swing/JavaSoundTool.java"/>
+</paragraph>
+<paragraph>
+  <title>
+  </title>
+    <importSource file="src/name/panitz/game/framework/swing/SwingScreen.java"/>
+</paragraph>
+
+ 
+<paragraph>
+  <title>
+  </title>
+    <importSource file="src/name/panitz/game/framework/swing/SwingGame.java"/>
+</paragraph>
+
+</paragraph>
+</content>
+</lecture>
