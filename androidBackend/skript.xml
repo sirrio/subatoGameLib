@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lecture>
+<title>Android-Umsetzung der Spielebibliothek</title>
+<docent>Sven Eric Panitz</docent>
+<preface>
+</preface>
+
+<content>
+<paragraph>
+<title>Die Android-Umsetzung</title>
+
+
+<paragraph>
+  <title>
+  </title>
+  <importSource file="app/src/main/java/name/panitz/game/framework/android/AndroidGraphicsTool.java"/>
+</paragraph>
+
+<paragraph>
+  <title>
+  </title>
+  <importSource file="app/src/main/java/name/panitz/game/framework/android/AndroidSoundTool.java"/>
+</paragraph>
+<paragraph>
+  <title>
+  </title>
+    <importSource file="app/src/main/java/name/panitz/game/framework/android/Screen.java"/>
+</paragraph>
+
+<paragraph>
+  <title>
+  </title>
+    <importSource file="app/src/main/java/name/panitz/game/framework/android/GameActivity.java"/>
+</paragraph>
+
+<paragraph>
+  <title>
+  </title>
+    <importSource file="app/src/main/java/name/panitz/game/framework/android/CustomGestureDetector.java"/>
+</paragraph>
+
+
+ 
+<paragraph>
+  <title>
+  </title>
+    <importSource file="app/src/main/java/name/panitz/MainActivity.java"/>
+</paragraph>
+
+</paragraph>
+</content>
+</lecture>
