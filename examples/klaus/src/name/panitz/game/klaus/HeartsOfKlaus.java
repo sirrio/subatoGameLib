@@ -44,40 +44,41 @@ public class HeartsOfKlaus<I, S> extends AbstractGame<I, S> {
       + "wwwwwwww  wwwwwwwwwwww";
 
   public HeartsOfKlaus() {
-    super(new Klaus<>(new Vertex(0, 0)), 22*GRID_WIDTH, 17*GRID_WIDTH);
+    super(new Klaus<>(new Vertex(0,0)), 22*GRID_WIDTH, 17*GRID_WIDTH);
 
     klaus = (Klaus<I>) getPlayer();
     
     BufferedReader r = new BufferedReader(new StringReader(level1));
     int l = 0;
     try {
-      for (String line = r.readLine(); line != null; line = r.readLine()) {
+      for (String line=r.readLine(); line != null; line=r.readLine()){
         int col = 0;
         for (char c : line.toCharArray()) {
           switch (c) {
           case 'w':
-            walls.add(new Wall<>(new Vertex(col * GRID_WIDTH, l * GRID_WIDTH)));
+            walls.add(new Wall<>
+     	       (new Vertex(col * GRID_WIDTH, l * GRID_WIDTH)));
             break;
           case 'h':
-            hearts.add(new Heart<>(new Vertex(col * GRID_WIDTH, l * GRID_WIDTH)));
+            hearts.add(new Heart<>
+       	        (new Vertex(col * GRID_WIDTH, l * GRID_WIDTH)));
             break;
           case 'f':
-            barrels.add(new Barrel<>(new Vertex(col * GRID_WIDTH, l * GRID_WIDTH)));
+            barrels.add(new Barrel<>(
+                new Vertex(col*GRID_WIDTH, l*GRID_WIDTH)));
             break;
           case 'p':
-            getPlayer().getPos().moveTo(new Vertex(col * GRID_WIDTH, l * GRID_WIDTH-2));
-            
+            getPlayer().getPos().moveTo(new Vertex
+               (col * GRID_WIDTH, l * GRID_WIDTH-2));
             break;
           }
           col++;
         }
- //       width = col * GRID_WIDTH;
         l++;
       }
     } catch (IOException e) {
       e.printStackTrace();
     }
-  //  height = l * GRID_WIDTH;
     getGOss().add(barrels);
     getGOss().add(walls);
     getGOss().add(hearts);
@@ -86,18 +87,9 @@ public class HeartsOfKlaus<I, S> extends AbstractGame<I, S> {
 
   @Override
   public void paintTo(GraphicsTool<I> g) {
-/*    for (GameObject<I> p : walls)
-      p.paintTo(g);
-    for (GameObject p : hearts)
-      p.paintTo(g);
-    for (GameObject p : barrels)
-      p.paintTo(g);
-    player.paintTo(g);*/
     super.paintTo(g);
-
     g.drawString(50, 10, "Energy: " + energy);
     g.drawString(50, 30, "Hearts: " + hearts.size());
-
   }
 
   SoundObject<S> crash = new SoundObject<S>("crash.wav");
@@ -169,9 +161,9 @@ public class HeartsOfKlaus<I, S> extends AbstractGame<I, S> {
     fallingBarrel();
     playerBarrelCollision();
     if (getPlayer().getPos().y > getHeight()) {
-      getPlayer().getPos().moveTo(new Vertex(GRID_WIDTH, getHeight() - 80));
+      getPlayer().getPos()
+        .moveTo(new Vertex(GRID_WIDTH, getHeight() - 80));
     }
-
   }
 
   @Override
@@ -192,7 +184,6 @@ public class HeartsOfKlaus<I, S> extends AbstractGame<I, S> {
         break;
         default:;
       }
-
   }
 
   public boolean lost() {
