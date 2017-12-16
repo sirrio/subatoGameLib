@@ -6,6 +6,7 @@ import java.awt.Image;
 import javax.sound.sampled.AudioInputStream;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 
 import name.panitz.game.framework.Button;
 import name.panitz.game.framework.GameLogic;
@@ -30,7 +31,7 @@ public class SwingGame extends JPanel {
   }
 
 
-  public static void startGame(GameLogic<Image> game) {
+  public static void startGame(GameLogic<Image, AudioInputStream> game) {
     JFrame f = new JFrame();
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.add(new SwingScreen(game));
