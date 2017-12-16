@@ -1,4 +1,14 @@
 SKRIPTE=../stylesheets/
+
+filename=$(shell (basename $(CURDIR)))
+
+all: ${filename}.pdf
+
+
+${filename}.pdf: skript.pdf
+	cp skript.pdf ${filename}.pdf
+
+
 skript.pdf: skript.tex
 	xelatex skript.tex
 	-bibtex skript
