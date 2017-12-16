@@ -10,26 +10,29 @@ import name.panitz.game.framework.SoundTool;
 import static android.media.MediaPlayer.*;
 
 public class AndroidSoundTool implements SoundTool<MediaPlayer> {
-    Context view;
+  Context view;
 
-    public AndroidSoundTool(Context view) {
-        this.view = view;
+  public AndroidSoundTool(Context view) {
+    this.view = view;
+  }
+
+  private int byIdName(String name) {
+    Resources res = view.getResources();
+    return res.getIdentifier(name, "raw", view.getPackageName());
+  }
+
+  @Override
+  public MediaPlayer loadSound(String name) {
+    return MediaPlayer.create(view
+        ,byIdName(name.substring(0,name.lastIndexOf('.'))));
+  }
+
+  @Override
+  public void playSound(MediaPlayer sound) {
+    if (mpD.isPlaying()) {
+      mpD.pause();
+      mpD.seekTo(0);
     }
-
-    private int byIdName(String name) {
-        Resources res = view.getResources();
-        return res.getIdentifier(name, "raw", view.getPackageName());
-    }
-
-
-    @Override
-    public MediaPlayer loadSound(String name) {
-       return MediaPlayer.create(view,byIdName(name.substring(0,name.lastIndexOf('.'))));
-       // return create(view,R.raw.outch);
-    }
-
-    @Override
-    public void playSound(MediaPlayer sound) {
-        sound.start();
-    }
+    mpD.start();
+  }
 }

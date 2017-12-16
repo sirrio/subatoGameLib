@@ -31,11 +31,7 @@ public class SwingScreen extends JPanel{
       repaint();
       getToolkit().sync();
 
-      for (SoundObject<AudioInputStream> so:logic.getSoundsToPlayOnce()){
-        so.playSound(soundTool);
-      }
-      logic.getSoundsToPlayOnce().clear();
-
+      logic.playSounds(soundTool);
       requestFocus();
     });
     t.start();

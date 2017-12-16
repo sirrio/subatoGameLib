@@ -20,22 +20,31 @@ public class SimpleGame<I,S> extends AbstractGame<I,S>{
   int stiche = 0;
 
   TextObject<I> infoText
-    = new TextObject<>(new Vertex(30,35),"Kleines Beispielspiel","Helvetica",28);	
+    = new TextObject<>(new Vertex(30,35)
+       ,"Kleines Beispielspiel","Helvetica",28);	
 
   SoundObject<S> outch = new SoundObject<>("outch.wav");
   
   public SimpleGame() {
-    super(new ImageObject<>("hexe.png",new Vertex(200,100),new Vertex(1,1)),800,600);
+    super(new ImageObject<>("hexe.png"
+        ,new Vertex(200,200),new Vertex(1,1)),800,600);
+    
     hintergrund.add(new ImageObject<>("wiese.jpg"));
     hintergrund.add(infoText);
 
-    wolken.add(new ImageObject<>("wolke.png",new Vertex(800,10),new Vertex(-1,0)));;
-    wolken.add(new ImageObject<>("wolke.png",new Vertex(880,90),new Vertex(-1.2,0)));;
-    wolken.add(new ImageObject<>("wolke.png",new Vertex(1080,60),new Vertex(-1.1,0)));;
-    wolken.add(new ImageObject<>("wolke.png",new Vertex(980,110),new Vertex(-0.9,0)));;
+    wolken.add(new ImageObject<>("wolke.png"
+        ,new Vertex(800,10),new Vertex(-1,0)));
+    wolken.add(new ImageObject<>("wolke.png"
+        ,new Vertex(880,90),new Vertex(-1.2,0)));
+    wolken.add(new ImageObject<>("wolke.png"
+        ,new Vertex(1080,60),new Vertex(-1.1,0)));
+    wolken.add(new ImageObject<>("wolke.png"
+        ,new Vertex(980,110),new Vertex(-0.9,0)));
 
-    gegner.add(new ImageObject<>("biene.png",new Vertex(800,100),new Vertex(-1,0)));
-    gegner.add(new ImageObject<>("biene.png",new Vertex(800,300),new Vertex(-1.5,0)));
+    gegner.add(new ImageObject<>("biene.png"
+        ,new Vertex(800,100),new Vertex(-1,0)));
+    gegner.add(new ImageObject<>("biene.png"
+        ,new Vertex(800,300),new Vertex(-1.5,0)));
 
     getGOss().add(hintergrund);
     getGOss().add(wolken);
@@ -66,7 +75,8 @@ public class SimpleGame<I,S> extends AbstractGame<I,S>{
       }
     }
     if (stiche>=10){
-      gegner.add(new TextObject<>(new Vertex(100,300),"Du hast verloren","Helvetica",56));
+      gegner.add(new TextObject<>(new Vertex(100,300)
+          ,"Du hast verloren","Helvetica",56));
     }
   }
 
@@ -79,10 +89,18 @@ public class SimpleGame<I,S> extends AbstractGame<I,S>{
   public void keyReaction(KeyCode keycode) {
     if (keycode!=null)
      switch (keycode){
-      case RIGHT_ARROW:getPlayer().getVelocity().move(new Vertex(1,0));break;
-      case LEFT_ARROW: getPlayer().getVelocity().move(new Vertex(-1,0));break;
-      case DOWN_ARROW: getPlayer().getVelocity().move(new Vertex(0,1));break;
-      case UP_ARROW:   getPlayer().getVelocity().move(new Vertex(0,-1));break;
+      case RIGHT_ARROW:
+        getPlayer().getVelocity().move(new Vertex(1,0));
+        break;
+      case LEFT_ARROW:
+        getPlayer().getVelocity().move(new Vertex(-1,0));
+        break;
+      case DOWN_ARROW:
+        getPlayer().getVelocity().move(new Vertex(0,1));
+        break;
+      case UP_ARROW:
+        getPlayer().getVelocity().move(new Vertex(0,-1));
+        break;
       default: ;
      }
   }

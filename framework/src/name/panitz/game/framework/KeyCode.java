@@ -33,7 +33,8 @@ public enum KeyCode{
   VK_W('W'),
   VK_X('X'),
   VK_Y('Y'),
-  VK_Z('Z');
+  VK_Z('Z'),
+  VK_SPACE(' ');
 
   private static final Map<Integer, KeyCode> LOOKUP
     = new HashMap<Integer,KeyCode>();

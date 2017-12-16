@@ -32,6 +32,14 @@ public interface GameLogic<I,S> extends Movable, Paintable<I> {
       getPlayer().move();
     }
   }    
+
+  default void playSounds(SoundTool<S> soundTool){
+    for (SoundObject<S> so:getSoundsToPlayOnce()){
+      so.playSound(soundTool);
+    }
+    getSoundsToPlayOnce().clear();
+  }
+
   void keyReaction(KeyCode keycode);
   
   void start();
