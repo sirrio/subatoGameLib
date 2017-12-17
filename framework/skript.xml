@@ -4,6 +4,7 @@
 <docent>Sven Eric Panitz</docent>
 <preface>Zum Abschluss des Moduls »Objektorientierte Softwareentwicklung« steht ein kleines Spieleprojekt, das in Einzelarbeit zu lösen ist. 
 
+
 Dieses Papier stellt zusammen mit der Projektaufgabe eine kleine Rahmenbibliothek vor, unter deren Benutzung das Spieleprojekt zu realisieren ist.  Einige Klassen aus den bisherigen Übungsblättern finden in dieser Bibliothek Verwendung.   Die Rahmenbibliothek erlaubt es, Spiele unabhängig für die GUI-Plattformen Java-Swing, JavaFX, als Browserspiel mit Hilfe von GWT und als Android Applikation zu entwickeln. 
 </preface>
 
