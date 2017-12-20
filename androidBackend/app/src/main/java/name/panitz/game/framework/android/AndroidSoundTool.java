@@ -29,10 +29,10 @@ public class AndroidSoundTool implements SoundTool<MediaPlayer> {
 
   @Override
   public void playSound(MediaPlayer sound) {
-    if (mpD.isPlaying()) {
-      mpD.pause();
-      mpD.seekTo(0);
+    if (sound.isPlaying()) {
+      sound.pause();
+      sound.seekTo(0);
     }
-    mpD.start();
+    sound.start();
   }
 }
