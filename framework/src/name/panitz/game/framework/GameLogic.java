@@ -40,7 +40,8 @@ public interface GameLogic<I,S> extends Movable, Paintable<I> {
     getSoundsToPlayOnce().clear();
   }
 
-  void keyReaction(KeyCode keycode);
+  void keyPressedReaction(KeyCode keycode);
+  void keyReleasedReaction(KeyCode keycode);
   
   void start();
   void pause();

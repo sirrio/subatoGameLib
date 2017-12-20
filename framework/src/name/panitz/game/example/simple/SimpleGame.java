@@ -86,7 +86,7 @@ public class SimpleGame<I,S> extends AbstractGame<I,S>{
   }
 
   @Override
-  public void keyReaction(KeyCode keycode) {
+  public void keyPressedReaction(KeyCode keycode) {
     if (keycode!=null)
      switch (keycode){
       case RIGHT_ARROW:
