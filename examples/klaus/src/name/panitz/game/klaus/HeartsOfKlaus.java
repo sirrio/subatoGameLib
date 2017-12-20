@@ -167,7 +167,7 @@ public class HeartsOfKlaus<I, S> extends AbstractGame<I, S> {
   }
 
   @Override
-  public void keyReaction(KeyCode keycode) {
+  public void keyPressedReaction(KeyCode keycode) {
     if (keycode != null)
       switch (keycode) {
       case LEFT_ARROW:

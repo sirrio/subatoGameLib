@@ -27,7 +27,7 @@ public class CustomGestureDetector
 
   @Override
   public boolean onDoubleTap(MotionEvent e) {
-    game.keyReaction(KeyCode.VK_SPACE);
+    game.keyPressedReaction(KeyCode.VK_SPACE);
     return true;
   }
 
@@ -64,19 +64,19 @@ public class CustomGestureDetector
   public boolean onFling(MotionEvent e1, MotionEvent e2
       , float velocityX, float velocityY) {
     if ((e1.getX() - e2.getX())<40) {
-      game.keyReaction(KeyCode.RIGHT_ARROW);
+      game.keyPressedReaction(KeyCode.RIGHT_ARROW);
     }
     
     if (e1.getX() - e2.getX() > 40) {
-      game.keyReaction(KeyCode.LEFT_ARROW);
+      game.keyPressedReaction(KeyCode.LEFT_ARROW);
     }
 
     if (e2.getY() - e1.getY() >40) {
-      game.keyReaction(KeyCode.DOWN_ARROW);
+      game.keyPressedReaction(KeyCode.DOWN_ARROW);
     }
 
     if (e1.getY() - e2.getY() > 40) {
-      game.keyReaction(KeyCode.UP_ARROW);
+      game.keyPressedReaction(KeyCode.UP_ARROW);
     }
 
     return true;

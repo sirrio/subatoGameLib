@@ -30,7 +30,12 @@ public class FXScreen extends Canvas {
     logic.paintTo(gct);
  
     setOnKeyPressed((ev)->{
-      logic.keyReaction(KeyCode.fromCode(ev.getCode().impl_getCode()));
+      logic.keyPressedReaction(KeyCode.fromCode(ev.getCode().impl_getCode()));
+      ev.consume();
+    });
+
+    setOnKeyReleased((ev)->{
+      logic.keyReleasedReaction(KeyCode.fromCode(ev.getCode().impl_getCode()));
       ev.consume();
     });
 

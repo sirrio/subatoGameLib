@@ -39,7 +39,7 @@ public class SwingScreen extends JPanel{
     addKeyListener(new KeyAdapter() {	
       @Override
       public void keyPressed(KeyEvent e) {
-        logic.keyReaction(KeyCode.fromCode(e.getKeyCode()));
+        logic.keyPressedReaction(KeyCode.fromCode(e.getKeyCode()));
       }
     });
     setFocusable(true);

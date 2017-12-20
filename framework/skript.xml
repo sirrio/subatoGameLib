@@ -153,7 +153,7 @@ Spiele können nun als Unterklasse dieser abstrakten Klassen umgesetzt werden.
 
 <paragraph>
 <title>Tastaturbehandlung</title>
-Die Schnittstelle <tt>GameLogic</tt> enthält die Methode <tt> keyReaction(KeyCode keycode)</tt>. In dieser ist zu implementieren, wie auf Tastaturereignisse reagiert wird. Hierzu ist eine Aufzählungsklasse für Tastatur-Codes gegeben. In dieser sind (noch nicht alle) Tasten als Aufzählungswert versehen. Im Beispielspiel des übernächsten Abschnitts kann die Anwendung dieser Aufzählungsklasse gesehen werden. 
+Die Schnittstelle <tt>GameLogic</tt> enthält die Methode <tt> keyPressedReaction(KeyCode keycode)</tt>. In dieser ist zu implementieren, wie auf Tastaturereignisse (in diesem Fall das Drücken einer Taste) reagiert wird. Hierzu ist eine Aufzählungsklasse für Tastatur-Codes gegeben. In dieser sind (noch nicht alle) Tasten als Aufzählungswert versehen. Im Beispielspiel des übernächsten Abschnitts kann die Anwendung dieser Aufzählungsklasse gesehen werden. Des Weiteren ist die Methode <tt> keyReleasedReaction(KeyCode keycode)</tt> enthalten. Mit dieser Methode kann auf das loslassen eines Tastendrucks reagiert werden.
 <importSource file="src/name/panitz/game/framework/KeyCode.java"/>
 
 </paragraph>
@@ -198,7 +198,7 @@ Es bleiben drei Methoden, die zu überschreiben sind:
 </li>
 <li><tt>isStopped</tt>: hier wird ab dem 10. Bienenstich <tt>true</tt> zurück gegeben.
 </li>
-<li><tt>keyReaction</tt>: die Pfeiltasten verändern die Bewegungsrichtung der Hexe.
+<li><tt>keyPressedReaction</tt>: die Pfeiltasten verändern die Bewegungsrichtung der Hexe.
 </li>
 </ul>
 

@@ -93,7 +93,7 @@ public class GameScreen extends VerticalPanel{
 
     //    canvas.setFocus(true);
     canvas.addKeyPressHandler((ev)->{
-      game.keyReaction(KeyCode.fromCode(ev.getNativeEvent().getKeyCode()));
+      game.keyPressedReaction(KeyCode.fromCode(ev.getNativeEvent().getKeyCode()));
     });
     timer.scheduleRepeating(refreshRate);
     timer.run();
