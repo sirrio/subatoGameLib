@@ -67,5 +67,11 @@ public abstract class AbstractGame<I,S> implements GameLogic<I,S> {
     isStopped  = true;
     
   }
+
+  @Override
+  void keyPressedReaction(KeyCode keycode){}
+  @Override
+  void keyReleasedReaction(KeyCode keycode){}
+
 }
 
