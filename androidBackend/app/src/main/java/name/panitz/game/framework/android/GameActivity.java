@@ -3,18 +3,19 @@ package name.panitz.game.framework.android;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import name.panitz.game.framework.Button;
 import name.panitz.game.framework.GameLogic;
-import name.panitz.game.klaus.HeartsOfKlaus;
 
 
-public class GameActivity extends AppCompatActivity  {
+public class GameActivity extends AppCompatActivity {
   Screen gameView;
   private GestureDetector mGestureDetector;
 
@@ -31,8 +32,7 @@ public class GameActivity extends AppCompatActivity  {
     gameView.setMinimumWidth((int) game.getWidth());
     gameView.setMinimumHeight((int) game.getHeight());
        
-    RelativeLayout rl = new RelativeLayout(this);
-    rl.addView(gameView);
+    LinearLayout rl = new LinearLayout(this);
     // Create an object of our Custom Gesture Detector Class
     CustomGestureDetector customGestureDetector
       = new CustomGestureDetector(game);
@@ -47,12 +47,20 @@ public class GameActivity extends AppCompatActivity  {
         return true;
       }
     });
+
+
+    LinearLayout butView = new LinearLayout(this);
+    butView.setOrientation(LinearLayout.VERTICAL);
+
     for (Button b:game.getButtons()){
       android.widget.Button but = new android.widget.Button(this);
       but.setText(b.name);
       but.setOnClickListener(ev->b.action.run());
-      rl.addView(but,RelativeLayout.RIGHT_OF);
+      butView.addView(but);
     }
+    rl.addView(butView);
+    rl.addView(gameView);
+
     setContentView(rl);
   }
 
