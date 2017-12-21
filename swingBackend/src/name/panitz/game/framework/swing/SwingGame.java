@@ -34,7 +34,7 @@ public class SwingGame extends JPanel {
   public static void startGame(GameLogic<Image, AudioInputStream> game) {
     JFrame f = new JFrame();
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    f.add(new Swinggame(game));
+    f.add(new SwingGame(game));
     f.pack();
     f.setVisible(true);
   }

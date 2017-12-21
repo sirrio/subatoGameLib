@@ -69,9 +69,9 @@ public abstract class AbstractGame<I,S> implements GameLogic<I,S> {
   }
 
   @Override
-  void keyPressedReaction(KeyCode keycode){}
+  public void keyPressedReaction(KeyCode keycode){}
   @Override
-  void keyReleasedReaction(KeyCode keycode){}
+  public void keyReleasedReaction(KeyCode keycode){}
 
 }
 
