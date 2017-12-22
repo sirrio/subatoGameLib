@@ -7,6 +7,7 @@ public interface GraphicsTool<I> {
   void drawOval(double x,double y,double w,double h);
   void fillOval(double x,double y,double w,double h);
 
+  void setColor(double red, double green, double blue);
   void drawString(double x,double y,int fntsize, String fntName, String text);
   
   default void drawString(double x,double y,int fontSize, String text){

@@ -5,10 +5,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import name.panitz.game.framework.GameObject;
 import name.panitz.game.framework.GraphicsTool;
@@ -41,6 +41,7 @@ public class AndroidGraphicsTool implements GraphicsTool<Bitmap> {
 
   @Override
   public void drawRect(double x, double y, double w, double h) {
+    paint.setStyle(Paint.Style.STROKE);
     canvas.drawRect((float)(density*x),(float)(density*y)
       ,(float)(w*density+(density*x))
       ,(float)(h*density+(density*y)),paint);
@@ -48,24 +49,39 @@ public class AndroidGraphicsTool implements GraphicsTool<Bitmap> {
 
   @Override
   public void fillRect(double x, double y, double w, double h) {
+    paint.setStyle(Paint.Style.FILL);
+    canvas.drawRect((float)(density*x),(float)(density*y)
+        ,(float)(w*density+(density*x))
+        ,(float)(h*density+(density*y)),paint);
 
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
   @Override
   public void drawOval(double x, double y, double w, double h) {
-    
+    paint.setStyle(Paint.Style.STROKE);
+    canvas.drawOval((float)(density*x),(float)(density*y)
+        ,(float)(w*density+(density*x))
+        ,(float)(h*density+(density*y)),paint);
+  }
+
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+  @Override
+  public void fillOval(double x, double y, double w, double h) {
+    paint.setStyle(Paint.Style.FILL);
+    canvas.drawOval((float)(density*x),(float)(density*y)
+        ,(float)(w*density+(density*x))
+        ,(float)(h*density+(density*y)),paint);
   }
 
   @Override
-  public void fillOval(double x, double y, double w, double h) {
-    
+  public void setColor(double r, double g, double b) {
+    paint.setARGB(255,(int)(255*r),(int)(255*g),(int)(255*b));
   }
 
   @Override
   public void drawString(double x, double y, int fntsize
       , String fntName, String text) {
-    // Choose the brush color for drawing
-    paint.setColor(Color.argb(255,  249, 129, 0));
     paint.setTextSize(fntsize);
     canvas.drawText(text,(int)(density*x),(int)(density*y),paint);
   }

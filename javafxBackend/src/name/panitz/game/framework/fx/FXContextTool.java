@@ -20,7 +20,8 @@ public class FXContextTool implements GraphicsTool<Image>{
 
   @Override
   public void drawRect(double x, double y, double w, double h) {
-    gc.rect(x, y, w, h);
+    gc.setLineWidth(1);
+    gc.strokeRect(x, y, w, h);        
   }
 
   @Override
@@ -30,7 +31,8 @@ public class FXContextTool implements GraphicsTool<Image>{
 
   @Override
   public void drawOval(double x, double y, double w, double h) {
-    gc.arc(x, y, w, h, 0, Math.PI+2);
+    gc.setLineWidth(2);
+    gc.strokeOval(x, y, w, h);
   }
 
   @Override
@@ -50,5 +52,10 @@ public class FXContextTool implements GraphicsTool<Image>{
     go.setHeight(image.getHeight());
     return image;
   }
-}
 
+  @Override
+  public void setColor(double r, double g, double b) {
+    gc.setFill(new javafx.scene.paint.Color(r, g, b, 1));
+    gc.setStroke(new javafx.scene.paint.Color(r, g, b, 1));
+  }
+}

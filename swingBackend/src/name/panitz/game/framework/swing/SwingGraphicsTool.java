@@ -2,6 +2,7 @@ package name.panitz.game.framework.swing;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 
@@ -51,6 +52,11 @@ public class SwingGraphicsTool implements GraphicsTool<Image>{
     go.setWidth(image.getIconWidth());
     go.setHeight(image.getIconHeight());
     return image.getImage();
+  }
+
+  @Override
+  public void setColor(double r, double gr, double b) {
+    g.setColor(new Color((float)r, (float)gr, (float)b));
   }
 }
 

@@ -9,7 +9,6 @@ import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.event.dom.client.LoadEvent;
 import com.google.gwt.event.dom.client.LoadHandler;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-//import javafx.scene.text.Font;
 
 public class GWTGraphics implements GraphicsTool<ImageElement>{
   Context2d gc;
@@ -34,12 +33,20 @@ public class GWTGraphics implements GraphicsTool<ImageElement>{
   }
 
   @Override
-  public void drawOval(double x, double y, double w, double h) {}
+  public void drawOval(double x, double y, double w, double h) {
+    // TODO 
+  }
 
   @Override
-  public void fillOval(double x, double y, double w, double h) {}
+  public void fillOval(double x, double y, double w, double h) {
+    // TODO 
+  }
 
 
+  public void setColor(double r ,double g ,double b){
+    // TODO 
+  }
+  
   @Override
   public void drawString(double x,double y,int fontSize, String fontName, String text){
     gc.setFont(fontSize+"pt "+fontName);
